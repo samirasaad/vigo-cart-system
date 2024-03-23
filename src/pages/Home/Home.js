@@ -5,6 +5,8 @@ import { productsListApiUrl } from "../../network/apis";
 import { Link } from "react-router-dom";
 import { getProductsThunk } from "../../store/featuresThunks/products";
 import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../../store/featuresSlices/cart";
+import { handleAddToCart } from "../../utils/shared";
 
 // skip => should equals number of limit as dummy json does not contain page keyword for pagination
 function Home() {
@@ -60,17 +62,20 @@ function Home() {
   return (
     <div className="App">
       {productsList?.map((product) => (
-        <Link key={product.id} to={`/products/${product.id}`}>
-          <p
-            style={{
-              background: "gray",
-              border: "1px solid black",
-              padding: "10px",
-            }}
-          >
-            {`${product.id}-${product.title}`}
-          </p>
-        </Link>
+        <div>
+          <button onClick={() => handleAddToCart(product)}>add to cart</button>
+          <Link key={product.id} to={`/products/${product.id}`}>
+            <p
+              style={{
+                background: "gray",
+                border: "1px solid black",
+                padding: "10px",
+              }}
+            >
+              {`${product.id}-${product.title}`}
+            </p>
+          </Link>
+        </div>
       ))}
       {/* {isLoading && pagination?.total >= productsList?.length && (
         <p>loading.........</p>
