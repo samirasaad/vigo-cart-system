@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { removeFromCart } from "../../store/featuresSlices/cart";
+import { decrementQyt, removeFromCart } from "../../store/featuresSlices/cart";
+import { handleAddToCart } from "../../utils/shared";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -10,12 +11,26 @@ const Cart = () => {
     dispatch(removeFromCart(productId));
   };
 
+  const handleDecrementQty = (product) => {
+    dispatch(decrementQyt(product));
+  };
+
   return (
     <div>
-      {cartItems?.map((item,index) => (
-        <p key={item.id}>
-          {item.title}
+      {cartItems?.map((product, index) => (
+        <p key={product.id}>
+          {product.title}
           <button onClick={() => handleRemoveFromCart(index)}>remove</button>
+          <div>
+            <button onClick={() => handleAddToCart(product)}>+</button>
+            <p>{product.Qty}</p>
+            <button
+              disabled={product.Qty === 1}
+              onClick={() => handleDecrementQty(product)}
+            >
+              -
+            </button>
+          </div>
         </p>
       ))}
     </div>
