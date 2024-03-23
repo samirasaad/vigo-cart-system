@@ -1,3 +1,7 @@
+#App {
+  position: relative;
+}
+
 #primary-spinner-bg {
   position: fixed;
   z-index: 11111111111111;

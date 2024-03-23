@@ -1,5 +1,8 @@
+import store from "../store";
+import { showLoader } from "../store/featuresSlices/loader";
+
 export const requestHandler = (request) => {
-  // store.dispatch(showLoader(true));
+  store.dispatch(showLoader(true));
   let spinnerElem = document.getElementById("primary-spinner-bg");
   if (spinnerElem) {
     document.getElementById("primary-spinner-bg").style.visibility = "visible";
@@ -8,7 +11,7 @@ export const requestHandler = (request) => {
 };
 
 export const successHandler = (response) => {
-  // store.dispatch(showLoader(false));
+  store.dispatch(showLoader(false));
   let spinnerElem = document.getElementById("primary-spinner-bg");
   if (spinnerElem) {
     document.getElementById("primary-spinner-bg").style.visibility = "hidden";
@@ -18,7 +21,7 @@ export const successHandler = (response) => {
 
 export const errorHandler = (error) => {
   console.log(error);
-  // store.dispatch(showLoader(false));
+  store.dispatch(showLoader(false));
   let spinnerElem = document.getElementById("primary-spinner-bg");
   if (spinnerElem) {
     document.getElementById("primary-spinner-bg").style.visibility = "hidden";
