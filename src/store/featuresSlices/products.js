@@ -60,6 +60,8 @@ const productsSlice = createSlice({
 });
 
 // using redux persist to store data in store inside this specifc slice [products] on refresh
-const persistedReducer = persistReducer(persistConfig, productsSlice.reducer);
+// const persistedReducer = persistReducer(persistConfig, productsSlice.reducer);
 
-export default persistedReducer;
+// export default persistedReducer;
+
+export default productsSlice.reducer;

@@ -42,8 +42,7 @@ function Home() {
     // } catch (error) {
     //   console.log(error);
     // }
-
-    dispatch(getProductsThunk());
+    // dispatch(getProductsThunk());
   };
 
   //   const [isLoading, setILoading] = useInfiniteScroll(fetchData);
@@ -51,7 +50,7 @@ function Home() {
   useEffect(() => {
     let mounted = true;
     if (mounted) {
-      fetchData();
+      dispatch(getProductsThunk());
     }
     return () => {
       mounted = false;
@@ -62,9 +61,9 @@ function Home() {
   return (
     <div className="App">
       {productsList?.map((product) => (
-        <div>
+        <div key={product.id}>
           <button onClick={() => handleAddToCart(product)}>add to cart</button>
-          <Link key={product.id} to={`/products/${product.id}`}>
+          <Link to={`/products/${product.id}`}>
             <p
               style={{
                 background: "gray",
