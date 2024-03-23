@@ -1,20 +1,21 @@
 import loadable from "@loadable/component";
+import Loader from "../components/Loader/Loader";
 
 export const Home = loadable(() => import("./../pages/Home/Home"), {
-  fallback: <p>...loading</p>,
+  fallback: <Loader />,
 });
 
 export const Cart = loadable(() => import("./../pages/Cart/Cart"), {
-  fallback: <p>...loading</p>,
+  fallback: <Loader />,
 });
 
 export const ProductDetails = loadable(
   () => import("./../pages/ProductDetails/ProductDetails"),
   {
-    fallback: <p>...loading</p>,
+    fallback: <Loader />,
   }
 );
 
 export const NotFound = loadable(() => import("./../pages/NotFound/NotFound"), {
-  fallback: <p>...loading</p>,
+  fallback: <Loader />,
 });
