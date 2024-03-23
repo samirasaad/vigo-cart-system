@@ -1,11 +1,10 @@
-import Task from "./Task";
-import TaskList from "./TasksList";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./routing/router";
 
-function App() {
+const App =()=> {
   return (
     <div className="App">
-      <Task />
-      <TaskList />
+      <RouterProvider router={router} />
     </div>
   );
 }
