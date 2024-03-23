@@ -12,10 +12,10 @@ const Cart = () => {
 
   return (
     <div>
-      {cartItems?.map((item) => (
+      {cartItems?.map((item,index) => (
         <p key={item.id}>
           {item.title}
-          <button onClick={() => handleRemoveFromCart(item.id)}>remove</button>
+          <button onClick={() => handleRemoveFromCart(index)}>remove</button>
         </p>
       ))}
     </div>

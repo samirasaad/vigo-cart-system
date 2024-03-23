@@ -5,7 +5,7 @@ import store from "..";
 import { showToaster } from "./toaster";
 
 const persistConfig = {
-  key: "products",
+  key: "cart",
   storage,
 };
 const initialState = {
@@ -20,9 +20,11 @@ const cartSlice = createSlice({
       state.cartItems = [...state.cartItems, action.payload];
     },
     removeFromCart: (state, action) => {
-      state.cartItems = state.cartItems.filter(
-        (product) => product.id !== action.payload
-      );
+      state.cartItems.splice(action.payload,1);
+      // state.cartItems = state.cartItems.filter(
+      //   (product) => product.id !== action.payload
+      // );
+
       // store.dispatch(
       //   showToaster({
       //     isToasterDisplayed: true,
