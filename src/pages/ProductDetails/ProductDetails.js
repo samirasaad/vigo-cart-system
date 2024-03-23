@@ -1,9 +1,22 @@
-import React from 'react'
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { getProductDetailsThunk } from "../../store/featuresThunks/products";
 
 const ProductDetails = () => {
-    return (
-        <p>details</p>
-    )
-}
+  const dispatch = useDispatch();
+  const { productId } = useParams();
+  const { productDetails } = useSelector(({ products }) => products);
 
-export default ProductDetails
+  console.log("productDetails", productDetails);
+  
+  useEffect(() => {
+    if (productId) {
+      dispatch(getProductDetailsThunk(productId));
+    }
+  }, [dispatch, productId]);
+
+  return <p>details</p>;
+};
+
+export default ProductDetails;
