@@ -26,7 +26,8 @@ const cartSlice = createSlice({
       if (productIndex === -1) {
         state.cartItems = [...state.cartItems, { ...action.payload, Qty: 1 }];
       } else {
-        // if product has index in list it means its already added before, just increase its Qty
+        /* if product has index in list it means its already added before, 
+        just increase its Qty*/
         state.cartItems[productIndex].Qty =
           state.cartItems[productIndex].Qty + 1;
         state.cartItems = [...state.cartItems];
@@ -34,17 +35,9 @@ const cartSlice = createSlice({
     },
     removeFromCart: (state, action) => {
       state.cartItems.splice(action.payload, 1);
-      // state.cartItems = state.cartItems.filter(
-      //   (product) => product.id !== action.payload
-      // );
-
-      // store.dispatch(
-      //   showToaster({
-      //     isToasterDisplayed: true,
-      //     type: "success",
-      //     msg: "product removed successfully",
-      //   })
-      // );
+    },
+    removeAll: (state, action) => {
+      state.cartItems.splice(0, state.cartItems.length);
     },
     decrementQyt: (state, action) => {
       let productIndex = state.cartItems.findIndex(
@@ -57,7 +50,8 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addToCart, removeFromCart, decrementQyt } = cartSlice.actions;
+export const { addToCart, removeFromCart, decrementQyt, removeAll } =
+  cartSlice.actions;
 
 // using redux persist to store data in store inside this specifc slice [cart] on refresh
 const persistedReducer = persistReducer(persistConfig, cartSlice.reducer);
