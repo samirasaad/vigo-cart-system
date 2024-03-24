@@ -25,7 +25,8 @@ const Navbar = () => {
 
   return (
     <div>
-      <Link to="/">Products</Link>
+      <Link to="/">Home</Link>
+      <Link to="/products">Products</Link>
       <Link to="/cart" id="cart-icon">
         Cart
         {numberOfItems && <span>{numberOfItems}</span>}

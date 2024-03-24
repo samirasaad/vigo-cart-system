@@ -1,3 +1,11 @@
+.App {
+  background: linear-gradient(
+    90deg,
+    rgb(0, 0, 24) 0%,
+    rgb(1, 1, 47) 40%,
+    rgb(13, 24, 132) 91%
+  );
+}
 .img-fluid {
   width: 100%;
 }

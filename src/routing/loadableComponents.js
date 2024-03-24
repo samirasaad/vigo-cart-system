@@ -9,6 +9,10 @@ export const Cart = loadable(() => import("./../pages/Cart/Cart"), {
   fallback: <Loader />,
 });
 
+export const Products = loadable(() => import("./../pages/Products/Products"), {
+  fallback: <Loader />,
+});
+
 export const ProductDetails = loadable(
   () => import("./../pages/ProductDetails/ProductDetails"),
   {
