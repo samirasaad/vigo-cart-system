@@ -23,6 +23,10 @@ const Cart = () => {
     dispatch(removeAll());
   };
 
+  const calculateItemPrice = (product) => {
+    return `${product.price * product.Qty} $`;
+  };
+
   return (
     <div>
       {cartItems?.length > 0 && (
@@ -31,12 +35,12 @@ const Cart = () => {
       {cartItems ? (
         cartItems.length ? (
           cartItems.map((product, index) => (
-            <p key={product.id}>
-              {product.title}
-              <button onClick={() => handleRemoveFromCart(index)}>
-                remove
-              </button>
-              <div>
+            <div className="d-flex">
+              <p key={product.id}>{product.title}</p>
+              <div className="d-flex">
+                <button onClick={() => handleRemoveFromCart(index)}>
+                  remove
+                </button>
                 <button onClick={() => handleAddToCart(product)}>+</button>
                 <p>{product.Qty}</p>
                 <button
@@ -45,8 +49,9 @@ const Cart = () => {
                 >
                   -
                 </button>
+                <div>{calculateItemPrice(product)}</div>
               </div>
-            </p>
+            </div>
           ))
         ) : (
           <p>no data found</p>
