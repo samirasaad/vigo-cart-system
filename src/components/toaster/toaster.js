@@ -4,7 +4,7 @@ const Toaster = ({ msg, type }) => {
       style={{
         position: "fixed",
         bottom: "0",
-        background: `${type === "success"} ` ? "green" : "red",
+        background: `${type === "success" ? "green" : "red"} `,
       }}
     >
       {msg}

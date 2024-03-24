@@ -20,7 +20,7 @@ const productsSlice = createSlice({
     /******************* getting products list thunk request ***********************/
     builder.addCase(getProductsThunk.pending, (state) => {
       state.isLoading = true;
-      console.log("request is pending");
+      // console.log("request is pending");
     });
     builder.addCase(getProductsThunk.fulfilled, (state, action) => {
       state.isLoading = false;
@@ -33,28 +33,27 @@ const productsSlice = createSlice({
       // logging state inside reducer will give proxy object
       // current is alternative from redux toolkit view state
       console.log("state", current(state));
-      console.log("request is fullfilled");
+      // console.log("request is fullfilled");
     });
     builder.addCase(getProductsThunk.rejected, (state, action) => {
       state.isLoading = false;
       state.error = action.error.message;
-      console.log("request is failed");
+      // console.log("request is failed");
     });
 
     /****************************** getting product details ****************************/
     builder.addCase(getProductDetailsThunk.pending, (state) => {
       state.isLoading = true;
-      console.log("request is pending");
+      // console.log("request is pending");
     });
     builder.addCase(getProductDetailsThunk.fulfilled, (state, action) => {
       state.isLoading = false;
       state.productDetails = action.payload;
-      console.log("request is fullfilled");
+      // console.log("request is fullfilled");
     });
     builder.addCase(getProductDetailsThunk.rejected, (state, action) => {
       state.isLoading = false;
-      state.error = action.error.message;
-      console.log("request is failed");
+      // console.log("request is failed");
     });
   },
 });
