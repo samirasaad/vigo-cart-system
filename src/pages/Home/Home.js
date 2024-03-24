@@ -1,5 +1,20 @@
+import LottieReact from "../../components/lotties-react/Lottie";
+import animationData from './../../utils/lotties/woman-shopping-online.json';
+
 const Home = () => {
-  return <div className="home-wrapper">home</div>;
+   const defaultOptions = {
+     loop: true,
+     autoplay: true,
+     animationData: animationData,
+     rendererSettings: {
+       preserveAspectRatio: "xMidYMid slice",
+     },
+   };
+  return (
+    <div className="home-wrapper">
+      <LottieReact defaultOptions={defaultOptions} width={400} height={400}/>
+    </div>
+  );
 };
 
 export default Home;

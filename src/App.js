@@ -1,9 +1,9 @@
 import { RouterProvider } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { router } from "./routing/router";
-import "./App.css";
 import Loader from "./components/Loader/Loader";
 import Toaster from "./components/toaster/toaster";
+import "./App.css";
 
 const App = () => {
   const { isLoaderDisplayed } = useSelector(({ loader }) => loader);
