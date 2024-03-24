@@ -1,7 +1,7 @@
 import'./Footer.css';
 const Fotter =()=> {
     return (
-        <div>footer</div>
+        <footer>footer</footer>
     )
 }
 

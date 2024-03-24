@@ -1,4 +1,4 @@
-import LottieReact from "../../components/lotties-react/Lottie";
+import LottieReact from "../../components/LottieReact/LottieReact"
 import animationData from './../../utils/lotties/woman-shopping-online.json';
 
 const Home = () => {
