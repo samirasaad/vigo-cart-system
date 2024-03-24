@@ -8,18 +8,15 @@ const Navbar = () => {
   const { cartItems } = useSelector(({ cart }) => cart);
 
   useEffect(() => {
-    if (cartItems.length) {
-      setNumberOfItems(calculateNumberOfItems(cartItems));
-    }
+    setNumberOfItems(calculateNumberOfItems(cartItems));
   }, [cartItems]);
 
+  // recursion to add the quantity of the current item to the total of previous quantities,
   const calculateNumberOfItems = (cartItems, index = 0) => {
     // if index reaches the end of the cart list => return 0
     if (index >= cartItems.length) {
       return 0;
     }
-
-    // recursion to add the quantity of the current item to the total of previous quantities,
     const currentItem = cartItems[index];
     let totalItems = 0;
     totalItems += currentItem.Qty;
@@ -29,7 +26,7 @@ const Navbar = () => {
   return (
     <div>
       <Link to="/">Products</Link>
-      <Link to="/cart" id="cart-icon" >
+      <Link to="/cart" id="cart-icon">
         Cart
         {numberOfItems && <span>{numberOfItems}</span>}
       </Link>
