@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import "./Navbar.css";
 
 const Navbar = () => {
   const [numberOfItems, setNumberOfItems] = useState(0);
@@ -28,7 +29,7 @@ const Navbar = () => {
   return (
     <div>
       <Link to="/">Products</Link>
-      <Link to="/cart">
+      <Link to="/cart" id="cart-icon" >
         Cart
         {numberOfItems && <span>{numberOfItems}</span>}
       </Link>

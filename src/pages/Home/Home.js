@@ -7,6 +7,8 @@ import { getProductsThunk } from "../../store/featuresThunks/products";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../store/featuresSlices/cart";
 import { handleAddToCart } from "../../utils/shared";
+import "./Home.css";
+import "./../../utils/animation";
 
 // skip => should equals number of limit as dummy json does not contain page keyword for pagination
 function Home() {
@@ -59,33 +61,29 @@ function Home() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="container products-list ">
+      <div className="x">
       {productsList?.map((product) => (
-        <div key={product.id}>
-          <button onClick={() => handleAddToCart(product)}>add to cart</button>
-          <Link to={`/products/${product.id}`}>
-            <p
-              style={{
-                background: "gray",
-                border: "1px solid black",
-                padding: "10px",
-              }}
+        <div class="col-sm-4" key={product.id}>
+          <div class="product">
+            <Link to={`/products/${product.id}`}>
+              <div class="image">
+                <img class="img-fluid" src={product.thumbnail} />
+              </div>
+            </Link>
+            <button
+              onClick={() => handleAddToCart(product)}
+              className="add_to_cart"
             >
-              {`${product.id}-${product.title}`}
-            </p>
-          </Link>
+              add to cart
+            </button>
+            <div> {`${product.id}-${product.title}`}</div>
+          </div>
         </div>
       ))}
-      {/* {isLoading && pagination?.total >= productsList?.length && (
-        <p>loading.........</p>
-      )} */}
-      {/* {pagination?.total === productsList?.length && (
-        <p style={{ fontWeight: "bold" }}>
-          you reached the end of the results {pagination?.total}{" "}
-          {productsList?.length}
-        </p>
-      )} */}
     </div>
+      </div>
+
   );
 }
 
