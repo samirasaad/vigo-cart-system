@@ -13,9 +13,8 @@ const App = () => {
 
   return (
     <div className="App">
-      {isLoaderDisplayed && <Loader />}
       {isToasterDisplayed && <Toaster msg={msg} type={type} />}
-      <div id="primary-spinner-bg"></div>
+      <div id="primary-spinner-bg">{isLoaderDisplayed && <Loader />}</div>
       <RouterProvider router={router} />
     </div>
   );
