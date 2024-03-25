@@ -5,7 +5,9 @@ import {
   removeFromCart,
   removeAll,
 } from "../../store/featuresSlices/cart";
+import SingleCartItem from "../../components/SingleCartItem/SingleCartItem";
 import { handleAddToCart } from "../../utils/shared";
+import "./Cart.scss";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -28,38 +30,41 @@ const Cart = () => {
   };
 
   return (
-    <div>
+    <section className="cart-wrapper container ">
       {cartItems?.length > 0 && (
-        <button onClick={handleRemoveAll}>remove all</button>
+        <button
+          className="bold-font mx-3 py-3 text-white border-0 bg-transparent"
+          onClick={handleRemoveAll}
+        >
+          Remove all
+        </button>
       )}
-      {cartItems ? (
-        cartItems.length ? (
-          cartItems.map((product, index) => (
-            <div className="d-flex">
-              <p key={product.id}>{product.title}</p>
-              <div className="d-flex">
-                <button onClick={() => handleRemoveFromCart(index)}>
-                  remove
-                </button>
-                <button onClick={() => handleAddToCart(product)}>+</button>
-                <p>{product.Qty}</p>
-                <button
-                  disabled={product.Qty === 1}
-                  onClick={() => handleDecrementQty(product)}
-                >
-                  -
-                </button>
-                <div>{calculateItemPrice(product)}</div>
-              </div>
+      <div className="row mx-0">
+        {cartItems ? (
+          <>
+            <div className="col-md-8">
+              {cartItems.length ? (
+                cartItems.map((product, index) => (
+                  <SingleCartItem
+                    product={product}
+                    handleRemoveFromCart={handleRemoveFromCart}
+                    index={index}
+                    handleDecrementQty={handleDecrementQty}
+                    handleAddToCart={handleAddToCart}
+                    calculateItemPrice={calculateItemPrice}
+                  />
+                ))
+              ) : (
+                <p>no data found</p>
+              )}
             </div>
-          ))
+            <div className="col-md-4">sumarry</div>
+          </>
         ) : (
-          <p>no data found</p>
-        )
-      ) : (
-        <p>lodinggggssss</p>
-      )}
-    </div>
+          <p>lodinggggssss</p>
+        )}
+      </div>
+    </section>
   );
 };
 
