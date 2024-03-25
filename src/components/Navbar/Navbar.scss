@@ -1,0 +1,37 @@
+@import "./../../scss/variables";
+.nav-wrapper {
+  .nav-item {
+    display: inline-block;
+    position: relative;
+    color: $secondaryColor;
+    margin: 0.3em;
+    font-size: 1.4rem;
+    .nav-cart-icon {
+      height: 2.1rem;
+      position: relative;
+    }
+    .items-number {
+      position: absolute;
+      right: 0;
+      top: -16px;
+    }
+  }
+
+  .nav-item:not(#destinaion-cart-icon)::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: $secondaryColor;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  .nav-item:not(#destinaion-cart-icon):hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+}

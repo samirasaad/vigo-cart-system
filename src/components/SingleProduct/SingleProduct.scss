@@ -1,8 +1,17 @@
+@import "./../../scss//variables";
 .product {
   .card {
     box-shadow: -2px 1px 19px -3px rgba(0, 0, 0, 0.89);
     -webkit-box-shadow: -2px 1px 19px -3px rgba(0, 0, 0, 0.89);
     -moz-box-shadow: -2px 1px 19px -3px rgba(0, 0, 0, 0.89);
+    .card-footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      .card-icon {
+        color: $secondaryColor;
+      }
+    }
   }
   .discount-badge {
     position: absolute;
@@ -10,9 +19,64 @@
     right: 17px;
     z-index: 11;
   }
-  .card-footer {
-    position: absolute;
-    bottom: 0;
+
+  .img-fluid {
     width: 100%;
   }
+  header {
+    border-bottom: 1px solid lightgray;
+    margin-bottom: 20px;
+  }
+  .image {
+    position: relative;
+  }
+  .add_to_cart {
+    font-size: 2em;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+  }
+
+  .add_to_cart svg {
+    color: $secondaryColor;
+    transition-duration: 20s;
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100%,
+  20%,
+  50%,
+  80% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+  40% {
+    -webkit-transform: translateY(-30px);
+    -ms-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+  60% {
+    -webkit-transform: translateY(-15px);
+    -ms-transform: translateY(-15px);
+    transform: translateY(-15px);
+  }
+}
+.bounce_button {
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+}
+.bounce_button:hover {
+  animation-name: bounce;
+  -moz-animation-name: bounce;
 }

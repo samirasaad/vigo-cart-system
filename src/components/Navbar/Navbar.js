@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import "./Navbar.css";
+import "./Navbar.scss";
+import CartIcon from "../sharedUi/CartIcon/CartIcon";
 
 const Navbar = () => {
   const [numberOfItems, setNumberOfItems] = useState(0);
@@ -24,14 +25,23 @@ const Navbar = () => {
   };
 
   return (
-    <div>
-      <Link to="/">Home</Link>
-      <Link to="/products">Products</Link>
-      <Link to="/cart" id="cart-icon">
-        Cart
-        {numberOfItems && <span>{numberOfItems}</span>}
-      </Link>
-    </div>
+    <nav className="nav-wrapper container py-3 d-flex justify-content-between">
+      <div>Logo</div>
+      <div>
+        <Link to="/" className="nav-item bold-font">
+          Home
+        </Link>
+        <Link to="/products" className="nav-item bold-font">
+          Products
+        </Link>
+        <Link to="/cart" className="nav-item" id="destinaion-cart-icon">
+          {numberOfItems && (
+            <span className="items-number bold-font">{numberOfItems}</span>
+          )}
+          <CartIcon className="nav-cart-icon" />
+        </Link>
+      </div>
+    </nav>
   );
 };
 

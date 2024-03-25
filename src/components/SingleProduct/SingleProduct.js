@@ -22,17 +22,17 @@ const SingleProduct = ({ product, handleAddToCart }) => {
             />
           </div>
           <div class="card-body mb-5">
-            <h5 class="card-title">{product.title}</h5>
+            <h5 class="card-title semiBold-font title">{product.title}</h5>
           </div>
         </Link>
 
-        <div className="card-footer d-flex justify-content-between align-items-baseline">
-          <p className="mb-0">{`${product.price} $`}</p>
+        <div className="card-footer d-flex justify-content-between align-items-stretch">
+          <p className="mb-0 bold-font">{`${product.price} $`}</p>
           <button
             onClick={() => handleAddToCart(product)}
-            className="add_to_cart bg-transparent border-0"
+            className="wrapper add_to_cart bg-transparent border-0"
           >
-            <CartIcon className="cart-icon" />
+            <CartIcon className="bounce_button  add-to-cart-icon" />
           </button>
         </div>
       </div>

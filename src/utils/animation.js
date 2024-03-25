@@ -18,8 +18,8 @@ document.addEventListener("click", function (event) {
   c.style.width = p.offsetWidth + "px";
   c.style.height = p.offsetHeight + "px";
   c.style.zIndex = "99999";
-  const dest = document.querySelector("#cart-icon")
-    ? document.querySelector("#cart-icon")
+  const dest = document.querySelector("#destinaion-cart-icon")
+    ? document.querySelector("#destinaion-cart-icon")
     : "";
   const destDirections = {
     top: `${dest.offsetTop + dest.offsetHeight / 2}`,
