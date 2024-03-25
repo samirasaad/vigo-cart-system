@@ -19,16 +19,17 @@ header {
   /* height: 100%; */
   /* background-color: rgba(0, 0, 0, 0.4); */
   font-size: 2em;
+  background: transparent;
   color: red;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s;
+  transition-duration: 20s;
   opacity: 1;
 }
-.add_to_cart:hover {
-  background-color: rgba(0, 0, 0, 0.6);
-  opacity: 1;
+.add_to_cart:hover svg {
+  color: rgba(0, 0, 0, 0.6);
+  opacity: 0.5;
 }
 .add_to_cart:active {
   /* background-color: rgba(0, 0, 0, 0.8); */

@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import CartIcon from "../sharedUi/CartIcon/CartIcon";
+import "./SingleProduct.scss";
 
 const SingleProduct = ({ product, handleAddToCart }) => {
   return (
@@ -9,28 +11,34 @@ const SingleProduct = ({ product, handleAddToCart }) => {
     //     <img className="img-fluid" src={product.thumbnail} />
     //   </div>
     //     </Link>
-    //     <button
-    //       onClick={() => handleAddToCart(product)}
-    //       className="add_to_cart"
-    //     >
-    //       add to cart
-    //     </button>
+    // <button
+    //   onClick={() => handleAddToCart(product)}
+    //   className="add_to_cart"
+    // >
+    //   add to cart
+    // </button>
     //     <div> {`${product.id}-${product.title}`}</div>
     //   </div>
     // </div>
-    <div className="col-md-6 col-lg-4 col-xl-3" key={product.id}>
-      <div class="card h-100 product">
+    <div className="product col-md-6 col-lg-4 col-xl-3" key={product.id}>
+      <div class="card  h-100 ">
         <Link to={`/products/${product.id}`}>
           <div className="image">
-            <img className="img-fluid" src={product.thumbnail} />
+            <img className="product-cover img-fluid" src={product.thumbnail} />
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">{product.title}</h5>
           </div>
         </Link>
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">
-            This is a longer card with supporting text below as a natural
-            lead-in to additional content. This content is a little bit longer.
-          </p>
+
+        <div className="card-footer ">
+          <p>{product.price}</p>
+          <button
+            onClick={() => handleAddToCart(product)}
+            className="add_to_cart"
+          >
+            <CartIcon className="cart-icon" />
+          </button>
         </div>
       </div>
     </div>
