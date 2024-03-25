@@ -11,6 +11,9 @@
       .card-icon {
         color: $secondaryColor;
       }
+      .original-price {
+        color: #918d8d;
+      }
     }
   }
   .discount-badge {
@@ -23,10 +26,7 @@
   .img-fluid {
     width: 100%;
   }
-  header {
-    border-bottom: 1px solid lightgray;
-    margin-bottom: 20px;
-  }
+
   .image {
     position: relative;
   }
@@ -37,11 +37,23 @@
     align-items: center;
     justify-content: center;
     opacity: 1;
+    svg {
+      color: $secondaryColor;
+    }
   }
-
-  .add_to_cart svg {
-    color: $secondaryColor;
-    transition-duration: 20s;
+  .bounce_button {
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+  }
+  .bounce_button:hover {
+    animation-name: bounce;
+    -moz-animation-name: bounce;
   }
 }
 
@@ -65,18 +77,4 @@
     -ms-transform: translateY(-15px);
     transform: translateY(-15px);
   }
-}
-.bounce_button {
-  -webkit-animation-duration: 2s;
-  animation-duration: 2s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-  -webkit-animation-timing-function: ease-in-out;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-  -webkit-animation-iteration-count: infinite;
-}
-.bounce_button:hover {
-  animation-name: bounce;
-  -moz-animation-name: bounce;
 }

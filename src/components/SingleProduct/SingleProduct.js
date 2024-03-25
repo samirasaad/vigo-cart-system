@@ -3,6 +3,7 @@ import CartIcon from "../sharedUi/CartIcon/CartIcon";
 import "./SingleProduct.scss";
 import { Badge } from "react-bootstrap";
 import DiscountBadge from "../sharedUi/DiscountBadge/DiscountBadge";
+import { calculatePriceAfterDicount } from "../../utils/shared";
 
 const SingleProduct = ({ product, handleAddToCart }) => {
   return (
@@ -11,7 +12,10 @@ const SingleProduct = ({ product, handleAddToCart }) => {
       key={product.id}
     >
       {product.discountPercentage && (
-        <DiscountBadge discountPercentage={product.discountPercentage} />
+        <DiscountBadge
+          discountPercentage={product.discountPercentage}
+          className={"bold-font"}
+        />
       )}
       <div class="card border-5  h-100 rounded-4">
         <Link to={`/products/${product.id}`}>
@@ -27,7 +31,22 @@ const SingleProduct = ({ product, handleAddToCart }) => {
         </Link>
 
         <div className="card-footer d-flex justify-content-between align-items-stretch">
-          <p className="mb-0 bold-font">{`${product.price} $`}</p>
+          <div className="d-flex">
+            <p
+              className={`mb-0 bold-font original-price ${
+                product.discountPercentage ? "text-decoration-line-through" : ""
+              }`}
+            >
+              {`${product.price}$`}
+            </p>
+
+            <p className="bold-font mb-0 mx-3">
+              {calculatePriceAfterDicount(
+                product.price,
+                product.discountPercentage
+              )}
+            </p>
+          </div>
           <button
             onClick={() => handleAddToCart(product)}
             className="wrapper add_to_cart bg-transparent border-0"

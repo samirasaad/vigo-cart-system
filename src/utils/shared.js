@@ -18,3 +18,11 @@ export const handleAddToCart = (itemToBeAdded) => {
     })
   );
 };
+
+// calculate price after dicount
+export const calculatePriceAfterDicount = (
+  originalPrice,
+  discountPercentage
+) => {
+  return `${Math.ceil((discountPercentage / 100) * originalPrice)}$`;
+};

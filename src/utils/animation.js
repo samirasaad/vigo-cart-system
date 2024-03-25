@@ -10,38 +10,40 @@ document.addEventListener("click", function (event) {
   } else {
     p = event.target.closest(".card");
   }
-  c = p.querySelector("img").cloneNode(true);
+  
+  if (p) {
+    c = p.querySelector("img").cloneNode(true);
+    c.style.position = "absolute";
+    c.style.top = p.offsetTop + "px";
+    c.style.left = p.offsetLeft + "px";
+    c.style.width = p.offsetWidth + "px";
+    c.style.height = p.offsetHeight + "px";
+    c.style.zIndex = "99999";
+    const dest = document.querySelector("#destinaion-cart-icon")
+      ? document.querySelector("#destinaion-cart-icon")
+      : "";
+    const destDirections = {
+      top: `${dest.offsetTop + dest.offsetHeight / 2}`,
+      left: `${dest.offsetLeft + dest.offsetWidth / 2}`,
+    };
 
-  c.style.position = "absolute";
-  c.style.top = p.offsetTop + "px";
-  c.style.left = p.offsetLeft + "px";
-  c.style.width = p.offsetWidth + "px";
-  c.style.height = p.offsetHeight + "px";
-  c.style.zIndex = "99999";
-  const dest = document.querySelector("#destinaion-cart-icon")
-    ? document.querySelector("#destinaion-cart-icon")
-    : "";
-  const destDirections = {
-    top: `${dest.offsetTop + dest.offsetHeight / 2}`,
-    left: `${dest.offsetLeft + dest.offsetWidth / 2}`,
-  };
-
-  document.querySelector(".products-list") &&
-    document.querySelector(".products-list").appendChild(c);
-  animateElement(
-    c,
-    {
-      top: destDirections.top,
-      left: destDirections.left,
-      width: "0",
-      height: "0",
-      opacity: "0",
-    },
-    1200,
-    function () {
-      c.remove();
-    }
-  );
+    document.querySelector(".products-list") &&
+      document.querySelector(".products-list").appendChild(c);
+    animateElement(
+      c,
+      {
+        top: destDirections.top,
+        left: destDirections.left,
+        width: "0",
+        height: "0",
+        opacity: "0",
+      },
+      1200,
+      function () {
+        c.remove();
+      }
+    );
+  }
 });
 
 let number = document.querySelectorAll(".product").length;
