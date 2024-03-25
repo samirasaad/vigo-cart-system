@@ -15,7 +15,7 @@ const Home = () => {
       <LottieReact defaultOptions={defaultOptions} width={400} height={400} />
       <button className="primary-btn primar-gradient">discover products</button>
     </div>
-  );
+  )
 };
 
 export default Home;
