@@ -1,6 +1,7 @@
 import { Toast } from "react-bootstrap";
-import { showToaster } from "../../store/featuresSlices/toaster";
 import { useDispatch } from "react-redux";
+import { showToaster } from "../../store/featuresSlices/toaster";
+import Fade from "react-bootstrap/Fade";
 import "./toaster.scss";
 
 const Toaster = ({ isToasterDisplayed, msg, type }) => {
@@ -11,19 +12,17 @@ const Toaster = ({ isToasterDisplayed, msg, type }) => {
     dispatch(showToaster({ isToasterDisplayed: false }));
   };
   return (
-    <div>
-      <Toast
-        className="toatser-wrapper"
-        delay={3000}
-        autohide
-        bg={`${type} `}
-        animation={true}
-        show={isToasterDisplayed}
-        onClose={handleClose}
-      >
-        <Toast.Body className="text-white bold-font">{msg}</Toast.Body>
-      </Toast>
-    </div>
+    <Toast
+      className="toatser-wrapper"
+      delay={3000}
+      autohide
+      bg={`${type} `}
+      animation={true}
+      show={isToasterDisplayed}
+      onClose={handleClose}
+    >
+      <Toast.Body className="text-white bold-font">{msg}</Toast.Body>
+    </Toast>
   );
 };
 
