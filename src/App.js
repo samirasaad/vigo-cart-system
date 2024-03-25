@@ -15,7 +15,13 @@ const App = () => {
     <div className="App position-relative">
       <div id="primary-spinner-bg">{isLoaderDisplayed && <Loader />}</div>
       <RouterProvider router={router} />
-      {isToasterDisplayed && <Toaster msg={msg} type={type} />}
+      {isToasterDisplayed && (
+        <Toaster
+          isToasterDisplayed={isToasterDisplayed}
+          msg={msg}
+          type={type}
+        />
+      )}
     </div>
   );
 };
