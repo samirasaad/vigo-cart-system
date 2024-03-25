@@ -11,6 +11,7 @@ import "./Products.scss";
 import "./../../utils/animation";
 import { mainPhoto } from "../../utils/images";
 import SingleProduct from "../../components/SingleProduct/SingleProduct";
+import { Spinner } from "react-bootstrap";
 
 // skip => should equals number of limit as dummy json does not contain page keyword for pagination
 const Products = () => {

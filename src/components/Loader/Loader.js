@@ -1,19 +1,8 @@
-import React from "react";
+import { Spinner } from "react-bootstrap";
+import "./Loader.scss";
 
 const Loader = () => {
-  return (
-    <p
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        position: "absolute",
-        bottom: "50%",
-        left: "50%",
-      }}
-    >
-      loading..................
-    </p>
-  );
+  return <Spinner animation="grow" className="primar-gradient" />;
 };
 
 export default Loader;

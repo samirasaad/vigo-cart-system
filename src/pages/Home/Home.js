@@ -12,8 +12,8 @@ const Home = () => {
    };
   return (
     <div className="home-wrapper">
-      <LottieReact defaultOptions={defaultOptions} width={400} height={400}/>
-      <button className="primary-btn">discover products</button>
+      <LottieReact defaultOptions={defaultOptions} width={400} height={400} />
+      <button className="primary-btn primar-gradient">discover products</button>
     </div>
   );
 };
