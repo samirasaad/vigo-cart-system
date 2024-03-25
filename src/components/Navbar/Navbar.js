@@ -25,7 +25,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="nav-wrapper container py-3 d-flex justify-content-between">
+    <nav className="nav-wrapper mx-5 py-3 d-flex justify-content-between">
       <div>Logo</div>
       <div>
         <Link to="/" className="nav-item bold-font">

@@ -21,7 +21,7 @@ const ProductDetails = () => {
   }, [dispatch, productId]);
 
   return (
-    <section className="product-details-wrapper row mx-0 my-3 d-flex justify-content-center align-items-center ">
+    <section className="product-details-wrapper row m-auto container justify-content-center align-items-center ">
       <div className="col-md-6 d-flex justify-content-center align-items-center">
         <img
           className="product-cover"
@@ -29,7 +29,7 @@ const ProductDetails = () => {
           alt={productDetails.title}
         />
       </div>
-      <div className="col-md-6">
+      <div className="col-md-6 d-flex justify-content-center flex-column">
         <p className="text-white bold-font">
           <span className="heading">Product name</span>
           {` : ${productDetails.title}`}
@@ -59,7 +59,7 @@ const ProductDetails = () => {
           {`${productDetails.discountPercentage}%`}
         </p>
         <button
-          className="primary-btn primar-gradient my-3"
+          className="primary-btn primar-gradient my-3 d-flex justify-content-around"
           onClick={() => handleAddToCart(productDetails)}
         >
           add to cart
