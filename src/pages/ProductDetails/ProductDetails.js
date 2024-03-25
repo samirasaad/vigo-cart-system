@@ -31,31 +31,31 @@ const ProductDetails = () => {
       </div>
       <div className="col-md-6 d-flex justify-content-center flex-column">
         <p className="text-white bold-font">
-          <span className="heading">Product name</span>
+          <span className="secondary-text">Product name</span>
           {` : ${productDetails.title}`}
         </p>
         <p className="text-white bold-font">
-          <span className="heading">Product description : </span>
+          <span className="secondary-text">Product description : </span>
           {` ${productDetails.description}`}
         </p>
         <p className="text-white bold-font">
-          <span className="heading"> Category :</span>
+          <span className="secondary-text"> Category :</span>
           {` ${productDetails.category}`}
         </p>
 
         <p className="text-white bold-font">
-          <span className="heading"> Price before discount :</span>
+          <span className="secondary-text"> Price before discount :</span>
           {` ${productDetails.price}$`}
         </p>
         <p className="text-white bold-font">
-          <span className="heading">Price after discount : </span>
+          <span className="secondary-text">Price after discount : </span>
           {` ${calculatePriceAfterDicount(
             productDetails.price,
             productDetails.discountPercentage
           )}`}
         </p>
         <p className="text-white bold-font">
-          <span className="heading">Discount percentage : </span>
+          <span className="secondary-text">Discount percentage : </span>
           {`${productDetails.discountPercentage}%`}
         </p>
         <button

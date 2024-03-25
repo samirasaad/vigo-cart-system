@@ -1,13 +1,11 @@
-import { Link } from "react-router-dom";
-import CartIcon from "../sharedUi/CartIcon/CartIcon";
-import { Badge } from "react-bootstrap";
-import DiscountBadge from "../sharedUi/DiscountBadge/DiscountBadge";
-import { calculatePriceAfterDicount } from "../../utils/shared";
+import {
+  calculateItemPrice,
+  calculatePriceAfterDicount,
+} from "../../utils/shared";
 import "./SingleCartItem.scss";
 
 const SingleCartItem = ({
   product,
-  calculateItemPrice,
   handleAddToCart,
   handleDecrementQty,
   handleRemoveFromCart,
@@ -27,8 +25,8 @@ const SingleCartItem = ({
       </div>
       <div className="col-md-8">
         <p className="text-white bold-font">
-          <span className="heading">Product name</span>
-          {` : ${product.title}`}
+          <span className="heading">Product name : </span>
+          {`  ${product.title}`}
         </p>
         <p className="text-white bold-font">
           <span className="heading">Product description : </span>
@@ -41,7 +39,7 @@ const SingleCartItem = ({
 
         <p className="text-white bold-font">
           <span className="heading"> Price before discount :</span>
-          {` ${product.price}$`}
+          {` ${product.price} $`}
         </p>
         <p className="text-white bold-font">
           <span className="heading">Price after discount : </span>
@@ -52,23 +50,23 @@ const SingleCartItem = ({
         </p>
         <p className="text-white bold-font">
           <span className="heading">Discount percentage : </span>
-          {`${product.discountPercentage}%`}
+          {`${product.discountPercentage} %`}
         </p>
 
         <div className="d-flex align-items-baseline">
-          <button
-            className=" bg-transparent text-white px-3 py-1"
-            onClick={() => handleAddToCart(product)}
-          >
-            +
-          </button>
-          <p className="bold-font text-white px-3">{product.Qty}</p>
           <button
             className="bg-transparent text-white px-3 py-1"
             disabled={product.Qty === 1}
             onClick={() => handleDecrementQty(product)}
           >
             -
+          </button>
+          <p className="bold-font text-white px-3">{product.Qty}</p>
+          <button
+            className=" bg-transparent text-white px-3 py-1"
+            onClick={() => handleAddToCart(product)}
+          >
+            +
           </button>
           <p className="mb-0 text-white bold-font mx-3">
             {calculateItemPrice(product)}

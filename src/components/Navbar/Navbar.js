@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "./Navbar.scss";
 import CartIcon from "../sharedUi/CartIcon/CartIcon";
+import { calculateNumberOfItems } from "../../utils/shared";
 
 const Navbar = () => {
   const [numberOfItems, setNumberOfItems] = useState(0);
@@ -11,18 +12,6 @@ const Navbar = () => {
   useEffect(() => {
     setNumberOfItems(calculateNumberOfItems(cartItems));
   }, [cartItems]);
-
-  // recursion to add the quantity of the current item to the total of previous quantities,
-  const calculateNumberOfItems = (cartItems, index = 0) => {
-    // if index reaches the end of the cart list => return 0
-    if (index >= cartItems.length) {
-      return 0;
-    }
-    const currentItem = cartItems[index];
-    let totalItems = 0;
-    totalItems += currentItem.Qty;
-    return totalItems + calculateNumberOfItems(cartItems, index + 1);
-  };
 
   return (
     <nav className="nav-wrapper mx-5 py-3 d-flex justify-content-between">

@@ -67,6 +67,9 @@ a {
   cursor: pointer;
   position: absolute;
 }
+.secondary-text {
+  color: $secondaryColor;
+}
 /* scroll-width */
 ::-webkit-scrollbar {
   width: 4px !important;
@@ -104,9 +107,7 @@ a {
 
 //BUTTONS
 .primary-btn {
-  font-family: Roboto, sans-serif;
-  font-weight: 0;
-  font-size: 14px;
+  font-size: 1.1rem;
   color: #fff;
   padding: 10px 30px;
   border: 2px solid #0066cc;
@@ -126,5 +127,14 @@ a {
     background: linear-gradient(90deg, #0066cc 0%, #c500cc 100%);
     color: white;
     border: solid 2px #0066cc;
+  }
+}
+
+.secondary-btn {
+  @extend .primary-btn;
+  background: transparent;
+  color: black !important;
+  &:hover {
+    color: white !important;
   }
 }

@@ -8,6 +8,7 @@ import {
 import SingleCartItem from "../../components/SingleCartItem/SingleCartItem";
 import { handleAddToCart } from "../../utils/shared";
 import "./Cart.scss";
+import OrderSummary from "../../components/OrderSummary/OrderSummary";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -23,10 +24,6 @@ const Cart = () => {
 
   const handleRemoveAll = () => {
     dispatch(removeAll());
-  };
-
-  const calculateItemPrice = (product) => {
-    return `${product.price * product.Qty} $`;
   };
 
   return (
@@ -51,14 +48,16 @@ const Cart = () => {
                     index={index}
                     handleDecrementQty={handleDecrementQty}
                     handleAddToCart={handleAddToCart}
-                    calculateItemPrice={calculateItemPrice}
                   />
                 ))
               ) : (
                 <p>no data found</p>
               )}
             </div>
-            <div className="col-md-4">sumarry</div>
+            <div className="col-md-4">
+              <h2 className="text-white bold-font mb-3">Order summary</h2>
+              <OrderSummary cartItems={cartItems} />
+            </div>
           </>
         ) : (
           <p>lodinggggssss</p>

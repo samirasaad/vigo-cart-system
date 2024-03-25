@@ -1,0 +1,14 @@
+.summary-wrapper {
+  background: white;
+  border-radius: 10px;
+  .discount-code {
+    border-radius: 10px;
+    &:focus-visible {
+      outline: none;
+    }
+  }
+  .apply-code {
+    border: 0;
+    border-radius: 7px;
+  }
+}
