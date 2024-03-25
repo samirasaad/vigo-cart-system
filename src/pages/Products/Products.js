@@ -7,9 +7,10 @@ import { getProductsThunk } from "../../store/featuresThunks/products";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../store/featuresSlices/cart";
 import { handleAddToCart } from "../../utils/shared";
-import "./Products.css";
+import "./Products.scss";
 import "./../../utils/animation";
 import { mainPhoto } from "../../utils/images";
+import SingleProduct from "../../components/SingleProduct/SingleProduct";
 
 // skip => should equals number of limit as dummy json does not contain page keyword for pagination
 const Products = () => {
@@ -62,30 +63,15 @@ const Products = () => {
   }, []);
 
   return (
-    <div className="container products-list ">
-      {/* <img src={mainPhoto} alt="main" /> */}
-      <div className="x">
+    <section className="container products-list ">
+      {/* <img src={mainPhoto} alt="main" />*/}
+      <div class="row  g-4">
         {productsList?.map((product) => (
-          <div class="col-sm-4" key={product.id}>
-            <div class="product">
-              <Link to={`/products/${product.id}`}>
-                <div class="image">
-                  <img class="img-fluid" src={product.thumbnail} />
-                </div>
-              </Link>
-              <button
-                onClick={() => handleAddToCart(product)}
-                className="add_to_cart"
-              >
-                add to cart
-              </button>
-              <div> {`${product.id}-${product.title}`}</div>
-            </div>
-          </div>
+          <SingleProduct product={product} handleAddToCart={handleAddToCart} />
         ))}
       </div>
-    </div>
+    </section>
   );
-}
+};
 
 export default Products;

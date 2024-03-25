@@ -24,7 +24,8 @@ const productsSlice = createSlice({
     });
     builder.addCase(getProductsThunk.fulfilled, (state, action) => {
       state.isLoading = false;
-      state.productsList = [...state.productsList, ...action.payload.products];
+      // state.productsList = [...state.productsList, ...action.payload.products];
+      state.productsList = action.payload.products;
       state.pagination = {
         limit: action.payload.limit,
         skip: action.payload.skip,

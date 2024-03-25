@@ -1,0 +1,116 @@
+@import "./../scss/variables";
+body,
+html {
+  color: $drakPrimaryColor;
+  font-size: 16px;
+  overflow: hidden visible !important;
+  font-family: LT-Azer-Regular;
+  min-width: 100% !important;
+  background-color: white !important;
+}
+
+//BUTTONS
+.btn-primary-action {
+  cursor: pointer;
+  border-color: transparent !important;
+  color: #fff !important;
+  transition: 0.5s !important;
+  background-color: $primaryColor !important;
+  background-size: 200% auto !important;
+  border-radius: 50rem !important;
+  padding: 0.9em 21px;
+  &:hover {
+    background-position: right center !important;
+  }
+}
+
+.btn-secondary-action {
+  color: #007297;
+  cursor: pointer;
+  border: 1px solid #007297;
+  border-radius: 50rem !important;
+  padding: 0.9em 21px;
+  transition: 0.8s !important;
+  background-color: transparent;
+  &:hover {
+    background-color: $primaryColor;
+    color: #fff;
+  }
+  &:hover a {
+    color: #fff;
+  }
+}
+
+//FONTS
+.bold-font {
+  font-family: LT-Azer-Bold;
+}
+.medium-font {
+  font-family: LT-Azer-Medium;
+}
+
+.responsive-img {
+  max-width: 100%;
+}
+
+.home-card-bos-shadow {
+  -webkit-box-shadow: 0px 15px 21px 1px rgba(236, 243, 248, 1);
+  -moz-box-shadow: 0px 15px 21px 1px rgba(236, 243, 248, 1);
+  box-shadow: 0px 15px 21px 1px rgba(236, 243, 248, 1);
+}
+
+//GRADIENT
+.sme-gredient-to-right {
+  background-image: linear-gradient(
+    to right,
+    $primaryColor,
+    $primaryLightColor
+  );
+}
+.sme-gredient-to-top {
+  background-image: linear-gradient(
+    to top,
+    $primaryColor,
+    $primaryLightColor 235%
+  );
+}
+.cons-gredient-to-right {
+  background-color: $primaryColor !important;
+}
+.cons-gredient-to-top {
+  background-image: linear-gradient(
+    to top $secondaryColor,
+    $secondaryLightColor
+  );
+}
+.radius-ratio {
+  border-radius: 2em;
+}
+
+/* scroll-width */
+::-webkit-scrollbar {
+  width: 4px !important;
+}
+/* scroll-track */
+::-webkit-scrollbar-track {
+  background: #c33131;
+  border-radius: 3px;
+  padding-left: 10px;
+}
+/* scroll-handle */
+::-webkit-scrollbar-thumb {
+  background-color: $primaryColor !important;
+  border-radius: 3px;
+  width: 4px;
+  height: 10px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.img-fluid {
+  width: 100%;
+  height: 50vh;
+  object-fit: fill;
+}
