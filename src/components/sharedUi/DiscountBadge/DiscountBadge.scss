@@ -1,0 +1,105 @@
+@import "./../../../scss//variables";
+// .dis-ribbon {
+//   position: absolute;
+//   right: -5px;
+//   top: -5px;
+//   z-index: 1;
+//   overflow: hidden;
+//   width: 75px;
+//   height: 75px;
+//   text-align: right;
+// }
+// .dis-ribbon span {
+//   font-size: 11px;
+//   font-weight: bold;
+//   color: #fff;
+//   text-transform: uppercase;
+//   text-align: center;
+//   line-height: 23px;
+//   transform: rotate(45deg);
+//   -webkit-transform: rotate(45deg);
+//   width: 81px;
+//   display: block;
+//   background: #f038d8;
+//   background: linear-gradient(#ff475e 0%, #e869d8 100%);
+//   box-shadow: 0 3px 10px -5px black;
+//   position: absolute;
+//   top: 8px;
+//   right: -9px;
+//   //   height: 14px;
+// }
+// .dis-ribbon span::before {
+//   content: "";
+//   position: absolute;
+//   left: -1px;
+//   top: 100%;
+//   z-index: -1;
+//   border-left: 3px solid #f038d8;
+//   border-right: 4px solid transparent;
+//   border-bottom: 1px solid transparent;
+//   border-top: 5px solid #f038d8;
+// }
+// .dis-ribbon span::after {
+//   content: "";
+//   position: absolute;
+//   right: 0px;
+//   top: 100%;
+//   z-index: -1;
+//   border-left: 3px solid transparent;
+//   border-right: 3px solid #f038d8;
+//   border-bottom: 3px solid transparent;
+//   border-top: 3px solid #f038d8;
+// }
+
+.dis-ribbon {
+  position: absolute;
+  right: -5px;
+  top: -5px;
+  z-index: 1;
+  overflow: hidden;
+  width: 75px;
+  height: 75px;
+  text-align: right;
+}
+.dis-ribbon span {
+  font-size: 10px;
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 20px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  width: 100px;
+  top: 19px;
+  right: -21px;
+  display: block;
+  background: #e869d8;
+  background: linear-gradient(#ff475e 0%, #e869d8 100%);
+  // background: linear-gradient(1800deg, #0066cc 0%, #c500cc 100%);
+
+  box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+  position: absolute;
+}
+.dis-ribbon span::before {
+  content: "";
+  position: absolute;
+  left: 0px;
+  top: 100%;
+  z-index: -1;
+  border-left: 3px solid #e869d8;
+  border-right: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid #e869d8;
+}
+.dis-ribbon span::after {
+  content: "";
+  position: absolute;
+  right: 0px;
+  top: 100%;
+  z-index: -1;
+  border-left: 3px solid transparent;
+  border-right: 3px solid #e869d8;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid #e869d8;
+}
