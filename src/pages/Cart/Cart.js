@@ -38,7 +38,7 @@ const Cart = () => {
       {cartItems?.length > 0 && (
         <Btn
           content="Remove all"
-          className="bold-font mx-3 py-3 text-white border-0 bg-transparent"
+          className="bold-font mx-3 py-3 text-white border-0 bg-transparent mt-3 mt-md-0"
           handleClick={handleRemoveAll}
         />
       )}
