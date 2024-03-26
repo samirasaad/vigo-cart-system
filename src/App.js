@@ -2,7 +2,7 @@ import { RouterProvider } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { router } from "./routing/router";
 import Loader from "./components/Loader/Loader";
-import Toaster from "./components/toaster/toaster";
+import Toaster from "./components/Toaster/Toaster";
 import "./App.scss";
 
 const App = () => {

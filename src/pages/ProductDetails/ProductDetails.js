@@ -21,49 +21,51 @@ const ProductDetails = () => {
   }, [dispatch, productId]);
 
   return (
-    <section className="product-details-wrapper row m-auto container justify-content-center align-items-center ">
-      <div className="col-md-6 d-flex justify-content-center align-items-center">
-        <img
-          className="product-cover"
-          src={productDetails.thumbnail}
-          alt={productDetails.title}
-        />
-      </div>
-      <div className="col-md-6 d-flex justify-content-center flex-column">
-        <p className="text-white bold-font">
-          <span className="secondary-text">Product name</span>
-          {` : ${productDetails.title}`}
-        </p>
-        <p className="text-white bold-font">
-          <span className="secondary-text">Product description : </span>
-          {` ${productDetails.description}`}
-        </p>
-        <p className="text-white bold-font">
-          <span className="secondary-text"> Category :</span>
-          {` ${productDetails.category}`}
-        </p>
+    <section className="product-details-wrapper d-flex container justify-content-center align-items-center ">
+      <div className="bg-overlay row p-5">
+        <div className="col-md-6 d-flex justify-content-center align-items-center py-3">
+          <img
+            className="product-cover"
+            src={productDetails.thumbnail}
+            alt={productDetails.title}
+          />
+        </div>
+        <div className="col-md-6 d-flex justify-content-center flex-column">
+          <p className="text-white bold-font">
+            <span className="secondary-text">Product name</span>
+            {` : ${productDetails.title}`}
+          </p>
+          <p className="text-white bold-font">
+            <span className="secondary-text">Product description : </span>
+            {` ${productDetails.description}`}
+          </p>
+          <p className="text-white bold-font">
+            <span className="secondary-text"> Category :</span>
+            {` ${productDetails.category}`}
+          </p>
 
-        <p className="text-white bold-font">
-          <span className="secondary-text"> Price before discount :</span>
-          {` ${productDetails.price}$`}
-        </p>
-        <p className="text-white bold-font">
-          <span className="secondary-text">Price after discount : </span>
-          {` ${calculatePriceAfterDicount(
-            productDetails.price,
-            productDetails.discountPercentage
-          )}`}
-        </p>
-        <p className="text-white bold-font">
-          <span className="secondary-text">Discount percentage : </span>
-          {`${productDetails.discountPercentage}%`}
-        </p>
-        <button
-          className="primary-btn primar-gradient m-auto"
-          onClick={() => handleAddToCart(productDetails)}
-        >
-          add to cart
-        </button>
+          <p className="text-white bold-font">
+            <span className="secondary-text"> Price before discount :</span>
+            {` ${productDetails.price}$`}
+          </p>
+          <p className="text-white bold-font">
+            <span className="secondary-text">Price after discount : </span>
+            {` ${calculatePriceAfterDicount(
+              productDetails.price,
+              productDetails.discountPercentage
+            )}`}
+          </p>
+          <p className="text-white bold-font">
+            <span className="secondary-text">Discount percentage : </span>
+            {`${productDetails.discountPercentage}%`}
+          </p>
+          <button
+            className="primary-btn primar-gradient m-auto"
+            onClick={() => handleAddToCart(productDetails)}
+          >
+            add to cart
+          </button>
+        </div>
       </div>
     </section>
   );

@@ -14,7 +14,7 @@ const Navbar = () => {
   }, [cartItems]);
 
   return (
-    <nav className="nav-wrapper mx-5 py-3 d-flex justify-content-between">
+    <nav className="nav-wrapper px-3 py-1 d-flex justify-content-between">
       <Link to="/" className=" bold-font">
         <h2 className="text-white bold-font">Shoppingo</h2>
       </Link>

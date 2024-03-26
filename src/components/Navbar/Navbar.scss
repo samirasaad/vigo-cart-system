@@ -1,5 +1,10 @@
 @import "./../../scss/variables";
 .nav-wrapper {
+  background-color: #0e0a0ad4;
+  position: fixed;
+  top: 0;
+  z-index: 11111;
+  width: 100%;
   .nav-item {
     display: inline-block;
     position: relative;
