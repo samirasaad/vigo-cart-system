@@ -15,7 +15,10 @@ const Navbar = () => {
 
   return (
     <nav className="nav-wrapper mx-5 py-3 d-flex justify-content-between">
-      <h2 className="text-white bold-font">Logo</h2>
+      <Link to="/" className=" bold-font">
+        <h2 className="text-white bold-font">Shoppingo</h2>
+      </Link>
+
       <div>
         <Link to="/" className="nav-item bold-font">
           Home
@@ -24,7 +27,7 @@ const Navbar = () => {
           Products
         </Link>
         <Link to="/cart" className="nav-item" id="destinaion-cart-icon">
-          {numberOfItems >0 && (
+          {numberOfItems > 0 && (
             <span className="items-number bold-font">{numberOfItems}</span>
           )}
           <CartIcon className="nav-cart-icon" />
