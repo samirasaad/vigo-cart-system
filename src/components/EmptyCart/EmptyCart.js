@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { emptyCart } from "./../../utils/images";
+import Btn from "../sharedUi/Btn/Btn";
 import "./EmptyCart.scss";
 
 const EmptyCart = () => {
@@ -8,9 +9,10 @@ const EmptyCart = () => {
       <img src={emptyCart} alt="empty-cart" className="empty-cart-icon" />
       <p className="text-white">Your cart is empty</p>
       <Link to="/products">
-        <button className="primary-btn primar-gradient m-auto">
-          discover products
-        </button>
+        <Btn
+          content="Discover products"
+          className="primary-btn primar-gradient m-auto"
+        />
       </Link>
     </div>
   );

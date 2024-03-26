@@ -2,7 +2,7 @@ import "./DiscountBadge.scss";
 
 const DiscountBadge = ({ discountPercentage, className }) => {
   return (
-    <div class="dis-ribbon">
+    <div className="dis-ribbon">
       <span className={className}>{`${discountPercentage} %`}</span>
     </div>
   );

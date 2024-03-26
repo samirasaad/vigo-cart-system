@@ -2,6 +2,7 @@ import {
   calculateItemPrice,
   calculatePriceAfterDicount,
 } from "../../utils/shared";
+import Btn from "../sharedUi/Btn/Btn";
 import "./SingleCartItem.scss";
 
 const SingleCartItem = ({
@@ -40,7 +41,6 @@ const SingleCartItem = ({
           <span className="heading"> Category :</span>
           {` ${product.category}`}
         </p>
-
         <p className="text-white bold-font">
           <span className="heading"> Price before discount :</span>
           {` ${product.price} $`}
@@ -56,40 +56,38 @@ const SingleCartItem = ({
           <span className="heading">Discount percentage : </span>
           {`${product.discountPercentage} %`}
         </p>
-
         <div className="d-flex align-items-baseline">
-          <button
+          <Btn
+            content=" - "
             className="bg-transparent text-white px-3 py-1"
             disabled={product.Qty === 1}
-            onClick={() => handleDecrementQty(product)}
-          >
-            -
-          </button>
+            handleClick={() => handleDecrementQty(product)}
+          />
           <p className="bold-font text-white px-3">{product.Qty}</p>
-          <button
+          <Btn
+            content=" + "
             className=" bg-transparent text-white px-3 py-1"
-            onClick={() => handleAddToCart(product, "increaseQty")}
-          >
-            +
-          </button>
+            handleClick={() => handleAddToCart(product, "increaseQty")}
+          />
           <p className="mb-0 text-white bold-font mx-3">
             {calculateItemPrice(product)}
           </p>
-          <button
+          <Btn
+            content={
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                className="bi bi-trash3-fill"
+                viewBox="0 0 16 16"
+              >
+                <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5" />
+              </svg>
+            }
             className="remove-from-cart"
-            onClick={() => handleRemoveFromCart(index)}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              className="bi bi-trash3-fill"
-              viewBox="0 0 16 16"
-            >
-              <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5" />
-            </svg>
-          </button>
+            handleClick={() => handleRemoveFromCart(index)}
+          />
         </div>
       </div>
     </div>

@@ -7,9 +7,10 @@ import {
 } from "../../store/featuresSlices/cart";
 import SingleCartItem from "../../components/SingleCartItem/SingleCartItem";
 import { handleAddToCart } from "../../utils/shared";
-import "./Cart.scss";
 import OrderSummary from "../../components/OrderSummary/OrderSummary";
 import EmptyCart from "../../components/EmptyCart/EmptyCart";
+import Btn from "../../components/sharedUi/Btn/Btn";
+import "./Cart.scss";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -35,12 +36,11 @@ const Cart = () => {
       } `}
     >
       {cartItems?.length > 0 && (
-        <button
+        <Btn
+          content="Remove all"
           className="bold-font mx-3 py-3 text-white border-0 bg-transparent"
-          onClick={handleRemoveAll}
-        >
-          Remove all
-        </button>
+          handleClick={handleRemoveAll}
+        />
       )}
       <>
         {cartItems ? (
@@ -77,4 +77,3 @@ const Cart = () => {
 };
 
 export default Cart;
-

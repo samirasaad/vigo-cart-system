@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  calculateSubtotal,
-  calculateTotalPrice,
-} from "../../utils/shared";
+import { calculateSubtotal, calculateTotalPrice } from "../../utils/shared";
+import Btn from "../sharedUi/Btn/Btn";
 import "./OrderSummary.scss";
 
 const OrderSummary = ({ cartItems }) => {
@@ -86,7 +84,6 @@ const OrderSummary = ({ cartItems }) => {
             </small>
           </p>
         </div>
-
         <div className="d-flex">
           <input
             id="code"
@@ -95,12 +92,11 @@ const OrderSummary = ({ cartItems }) => {
             value={discountStr}
             onChange={handleDiscountpercentage}
           />
-          <button
+          <Btn
+            content="Apply"
             className="text-white px-2 py-1 apply-code bg-success mx-2"
-            onClick={() => setApplyDiscount(true)}
-          >
-            Apply
-          </button>
+            handleClick={() => setApplyDiscount(true)}
+          />
         </div>
         {discountPercentageErr && (
           <p className="mb-0 text-danger">{discountPercentageErr}</p>
@@ -119,9 +115,10 @@ const OrderSummary = ({ cartItems }) => {
         )}`}</h4>
       )}
       <div className="d-flex flex-column">
-        <button className="primary-btn primar-gradient m-auto">
-          Proceed to checkout
-        </button>
+        <Btn
+          content="Proceed to checkout"
+          className="primary-btn primar-gradient m-auto"
+        />
         <Link
           to="/products"
           className="secondary-btn m-auto my-2 continue-shopping-btn"

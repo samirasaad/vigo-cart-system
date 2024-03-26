@@ -6,6 +6,7 @@ import {
   calculatePriceAfterDicount,
   handleAddToCart,
 } from "../../utils/shared";
+import Btn from "../../components/sharedUi/Btn/Btn";
 import "./ProductDetails.scss";
 
 const ProductDetails = () => {
@@ -42,7 +43,6 @@ const ProductDetails = () => {
             <span className="secondary-text"> Category :</span>
             {` ${productDetails.category}`}
           </p>
-
           <p className="text-white bold-font">
             <span className="secondary-text"> Price before discount :</span>
             {` ${productDetails.price}$`}
@@ -58,12 +58,11 @@ const ProductDetails = () => {
             <span className="secondary-text">Discount percentage : </span>
             {`${productDetails.discountPercentage}%`}
           </p>
-          <button
+          <Btn
+            content="Add to cart"
             className="primary-btn primar-gradient m-auto"
-            onClick={() => handleAddToCart(productDetails, "add")}
-          >
-            add to cart
-          </button>
+            handleClick={() => handleAddToCart(productDetails, "add")}
+          />
         </div>
       </div>
     </section>

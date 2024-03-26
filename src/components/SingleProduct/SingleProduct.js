@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import CartIcon from "../sharedUi/CartIcon/CartIcon";
 import DiscountBadge from "../sharedUi/DiscountBadge/DiscountBadge";
 import { calculatePriceAfterDicount } from "../../utils/shared";
+import Btn from "../sharedUi/Btn/Btn";
 import "./SingleProduct.scss";
 
 const SingleProduct = ({ product, handleAddToCart }) => {
@@ -30,7 +31,6 @@ const SingleProduct = ({ product, handleAddToCart }) => {
             <h5 class="card-title semiBold-font title">{product.title}</h5>
           </div>
         </Link>
-
         <div className="card-footer d-flex justify-content-between align-items-stretch">
           <div className="d-flex">
             <p
@@ -48,12 +48,11 @@ const SingleProduct = ({ product, handleAddToCart }) => {
               )}
             </p>
           </div>
-          <button
-            onClick={() => handleAddToCart(product, 'add')}
+          <Btn
+            content={<CartIcon className="bounce_button  add-to-cart-icon" />}
             className="wrapper add_to_cart bg-transparent border-0"
-          >
-            <CartIcon className="bounce_button  add-to-cart-icon" />
-          </button>
+            handleClick={() => handleAddToCart(product, "add")}
+          />
         </div>
       </div>
     </div>
