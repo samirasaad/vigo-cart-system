@@ -22,7 +22,7 @@ const ProductDetails = () => {
   return (
     <section className="product-details-wrapper d-flex container justify-content-center align-items-center ">
       <div className="bg-overlay row py-md-5">
-        <div className="col-md-6 d-flex justify-content-center align-items-center py-3">
+        <div className="col-md-6 d-flex justify-content-center align-items-center py-3 mb-5">
           <img
             className="product-cover"
             src={productDetails.thumbnail}
