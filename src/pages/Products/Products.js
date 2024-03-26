@@ -20,7 +20,7 @@ const Products = () => {
   // const [productsList, seproductsList] = useState([]);
   // const [pagination, setPagination] = useState({});
 
-  const { productsList, pagination } = useSelector(({ products }) => products);
+  const { productsList =[], pagination } = useSelector(({ products }) => products);
 
   const fetchData = async () => {
     // try {
@@ -54,6 +54,7 @@ const Products = () => {
 
   useEffect(() => {
     let mounted = true;
+
     if (mounted) {
       dispatch(getProductsThunk());
     }
@@ -64,8 +65,7 @@ const Products = () => {
   }, []);
 
   return (
-    <section className="container products-list ">
-      {/* <img src={mainPhoto} alt="main" />*/}
+    <section className="container products-list pb-5 ">
       <div class="row  g-4">
         {productsList?.map((product) => (
           <SingleProduct product={product} handleAddToCart={handleAddToCart} />

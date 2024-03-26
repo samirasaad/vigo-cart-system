@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
 import CartIcon from "../sharedUi/CartIcon/CartIcon";
-import "./SingleProduct.scss";
-import { Badge } from "react-bootstrap";
 import DiscountBadge from "../sharedUi/DiscountBadge/DiscountBadge";
 import { calculatePriceAfterDicount } from "../../utils/shared";
+import "./SingleProduct.scss";
 
 const SingleProduct = ({ product, handleAddToCart }) => {
   return (
     <div
-      className="box product col-md-6 col-lg-4 col-xl-3 position-relative"
+      className="
+    product-item product col-md-6 col-lg-4 col-xl-3 position-relative"
       key={product.id}
     >
       {product.discountPercentage && (
@@ -23,6 +23,7 @@ const SingleProduct = ({ product, handleAddToCart }) => {
             <img
               className="product-cover img-fluid rounded-4"
               src={product.thumbnail}
+              alt={product.title}
             />
           </div>
           <div class="card-body mb-5">

@@ -2,16 +2,16 @@ import { createBrowserRouter } from "react-router-dom";
 import {
   Cart,
   Home,
-  NotFound,
   ProductDetails,
   Products,
 } from "./loadableComponents";
 import Layout from "./Layout";
+import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 
 export const router = createBrowserRouter([
   {
     element: <Layout />,
-    errorElement: <NotFound />,
+    errorElement: <NotFoundPage />,
     children: [
       {
         path: "/",

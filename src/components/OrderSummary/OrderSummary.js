@@ -52,10 +52,8 @@ const OrderSummary = ({ cartItems }) => {
         discountPercentage,
       });
     }
-    // setDiscountPercentage(null);
     setDiscountStr(null);
     document.getElementById("code").value = "";
-    // setApplyDiscount(false)
   };
 
   return (
@@ -63,7 +61,7 @@ const OrderSummary = ({ cartItems }) => {
       {cartItems && (
         <p className="small bold-font">{`Sub-total : ${calculateSubtotal(
           cartItems
-        )}`}</p>
+        )} $`}</p>
       )}
       <p className="small bold-font">Shipping : {`${shipping} $`} </p>
       <p className="small bold-font">Taxes :{`${taxes} $`} </p>
@@ -90,16 +88,16 @@ const OrderSummary = ({ cartItems }) => {
           </p>
         </div>
 
-        <div>
+        <div className="d-flex">
           <input
             id="code"
             type="text"
-            className="discount-code"
+            className="discount-code w-75"
             value={discountStr}
             onChange={handleDiscountpercentage}
           />
           <button
-            className="text-white px-2 py-1 apply-code bg-success mx-3"
+            className="text-white px-2 py-1 apply-code bg-success mx-2"
             onClick={() => setApplyDiscount(true)}
           >
             Apply

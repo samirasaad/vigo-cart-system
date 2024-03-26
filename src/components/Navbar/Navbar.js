@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import "./Navbar.scss";
 import CartIcon from "../sharedUi/CartIcon/CartIcon";
 import { calculateNumberOfItems } from "../../utils/shared";
+import "./Navbar.scss";
 
 const Navbar = () => {
   const [numberOfItems, setNumberOfItems] = useState(0);
@@ -15,7 +15,7 @@ const Navbar = () => {
 
   return (
     <nav className="nav-wrapper mx-5 py-3 d-flex justify-content-between">
-      <div>Logo</div>
+      <h2 className="text-white bold-font">Logo</h2>
       <div>
         <Link to="/" className="nav-item bold-font">
           Home
@@ -24,7 +24,7 @@ const Navbar = () => {
           Products
         </Link>
         <Link to="/cart" className="nav-item" id="destinaion-cart-icon">
-          {numberOfItems && (
+          {numberOfItems >0 && (
             <span className="items-number bold-font">{numberOfItems}</span>
           )}
           <CartIcon className="nav-cart-icon" />

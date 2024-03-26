@@ -59,7 +59,7 @@ const ProductDetails = () => {
           {`${productDetails.discountPercentage}%`}
         </p>
         <button
-          className="primary-btn primar-gradient my-3 d-flex justify-content-around"
+          className="primary-btn primar-gradient m-auto"
           onClick={() => handleAddToCart(productDetails)}
         >
           add to cart

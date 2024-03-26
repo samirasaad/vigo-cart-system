@@ -20,6 +20,9 @@ export const ProductDetails = loadable(
   }
 );
 
-export const NotFound = loadable(() => import("./../pages/NotFound/NotFound"), {
-  fallback: <Loader />,
-});
+export const NotFoundPage = loadable(
+  () => import("./../pages/NotFoundPage/NotFoundPage"),
+  {
+    fallback: <Loader />,
+  }
+);
