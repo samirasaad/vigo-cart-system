@@ -23,7 +23,7 @@ const Products = () => {
 
   return (
     <section className="container products-list pb-5 ">
-      <div class="row  g-4">
+      <div class="row pt-5 g-4">
         {productsList?.map((product) => (
           <SingleProduct product={product} handleAddToCart={handleAddToCart} />
         ))}
