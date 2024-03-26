@@ -39,7 +39,7 @@ const Cart = () => {
       <div className="row mx-0">
         {cartItems ? (
           <>
-            <div className="col-md-8">
+            <div className="col-lg-8">
               {cartItems.length ? (
                 cartItems.map((product, index) => (
                   <SingleCartItem
@@ -54,7 +54,7 @@ const Cart = () => {
                 <p>no data found</p>
               )}
             </div>
-            <div className="col-md-4">
+            <div className="col-lg-4">
               <h2 className="text-white bold-font mb-3">Order summary</h2>
               <OrderSummary cartItems={cartItems} />
             </div>

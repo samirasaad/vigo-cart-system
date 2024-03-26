@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { calculateTotalPrice } from "../../utils/shared";
+import {
+  calculateSubTotal,
+  calculateSubtotal,
+  calculateTotalPrice,
+} from "../../utils/shared";
 import "./OrderSummary.scss";
 
 const OrderSummary = ({ cartItems }) => {
@@ -36,10 +40,7 @@ const OrderSummary = ({ cartItems }) => {
 
   const handleDiscountpercentage = (e) => {
     setDiscountStr(e.target.value);
-  };
-
-  const getSubTotal = () => {
-    // console.log("test");
+    setApplyDiscount(false);
   };
 
   const handleSubmit = (e) => {
@@ -51,11 +52,19 @@ const OrderSummary = ({ cartItems }) => {
         discountPercentage,
       });
     }
+    // setDiscountPercentage(null);
+    setDiscountStr(null);
+    document.getElementById("code").value = "";
+    // setApplyDiscount(false)
   };
 
   return (
     <div className="summary-wrapper p-3">
-      <p className="small bold-font">{`Sub-total : ${getSubTotal()}`}</p>
+      {cartItems && (
+        <p className="small bold-font">{`Sub-total : ${calculateSubtotal(
+          cartItems
+        )}`}</p>
+      )}
       <p className="small bold-font">Shipping : {`${shipping} $`} </p>
       <p className="small bold-font">Taxes :{`${taxes} $`} </p>
       <form onSubmit={handleSubmit}>
@@ -83,9 +92,11 @@ const OrderSummary = ({ cartItems }) => {
 
         <div>
           <input
+            id="code"
+            type="text"
             className="discount-code"
-            onChange={handleDiscountpercentage}
             value={discountStr}
+            onChange={handleDiscountpercentage}
           />
           <button
             className="text-white px-2 py-1 apply-code bg-success mx-3"

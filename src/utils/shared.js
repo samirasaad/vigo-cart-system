@@ -2,13 +2,8 @@ import store from "../store";
 import { addToCart } from "../store/featuresSlices/cart";
 import { showToaster } from "../store/featuresSlices/toaster";
 
+/******************** handle add product to cart and increasing quantity ************************/
 export const handleAddToCart = (itemToBeAdded) => {
-  // if (
-  //   store.getState().cart.cartItems.find((item) => item.id === itemToBeAdded.id)
-  // ) {
-  //   console.log("item already in cart increase quantity");
-  // } else {
-  // }
   store.dispatch(addToCart(itemToBeAdded));
   store.dispatch(
     showToaster({
@@ -19,8 +14,10 @@ export const handleAddToCart = (itemToBeAdded) => {
   );
 };
 
-/******************************* calculations ************************/
-// recursion to add the quantity of the current item to the total of previous quantities,
+/**************************************** calculations *************************************/
+
+/* recursion to add the quantity of the current item to the total of
+ previous quantities to get cart ites numbers in navabar*/
 export const calculateNumberOfItems = (cartItems, index = 0) => {
   // if index reaches the end of the cart list => return 0
   if (index >= cartItems.length) {
@@ -32,97 +29,73 @@ export const calculateNumberOfItems = (cartItems, index = 0) => {
   return totalItems + calculateNumberOfItems(cartItems, index + 1);
 };
 
-// calculate price after dicount
+// calculate each product price after dicount
 export const calculatePriceAfterDicount = (
   originalPrice,
   discountPercentage
 ) => {
-  return `${Math.ceil(
-    originalPrice - (discountPercentage / 100) * originalPrice
-  )} $`;
+  return `${(
+    originalPrice -
+    (discountPercentage / 100) * originalPrice
+  ).toFixed(2)} $`;
 };
 
 // calculate price for each item according to its quantity
 export const calculateItemPrice = (product) => {
-  return `${Math.ceil(
+  return `${(
     product.price * product.Qty -
-      (product.discountPercentage / 100) * product.price * product.Qty
-  )} `;
+    (product.discountPercentage / 100) * product.price * product.Qty
+  ).toFixed(2)} `;
 };
 
+// calculate price of all quantities with discount percetage on each item
+export const calculateSubtotal = (items) => {
+  let subtotal = 0;
+
+  for (let i = 0; i < items.length; i++) {
+    const item = items[i];
+
+    // calculate the total price of the item (price * quantity)
+    const totalPrice = item.price * item.Qty;
+
+    // apply discount if applicable
+    const discountedPrice = totalPrice * (1 - item.discountPercentage / 100);
+
+    // add the discounted price to the subtotal
+    subtotal += discountedPrice;
+  }
+
+  return subtotal.toFixed(2);
+};
 /* calculate total price total price for each item according to its quantity 
  + shipping 
  + taxes
    and after that appling discount code
+
+   ///// discount codes /////
+   abc => 15%
+   abcd => 20%
+   abcde => 30%
 */
-
-// export const calculateTotalPrice = (
-//   cartItems,
-// applyDiscount,
-// { shipping, taxes, discountPercentage, percentageIncrease=0 },
-//   index = 0
-// ) => {
-//   // Base case: if index exceeds the array length, return 0
-//   if (index >= cartItems.length) {
-//     return 0;
-//   }
-
-//   // Calculate the total price of the current item including percentage increase (price * quantity * (1 + percentageIncrease / 100))
-//   const currentItem = cartItems[index];
-//   const totalPriceOfItem =
-//     currentItem.price * currentItem.Qty * (1 + percentageIncrease / 100);
-
-//   // Recursively call to calculate the total price of the remaining items
-//   const totalPriceOfRemainingItems = calculateTotalPrice(
-//     cartItems,
-//     false,
-//     {
-//       shipping,
-//       taxes,
-//       discountPercentage,
-//       percentageIncrease: cartItems[index].discountPercentage,
-//     },
-//     index + 1
-//   );
-
-//   // Return the sum of the total price of this item and the total price of remaining items
-//   let totalItemsPrice = totalPriceOfItem + totalPriceOfRemainingItems;
-
-//   // Add shipping and taxes to the total price
-//   totalItemsPrice += shipping + taxes;
-
-//   // Apply discount if required
-//   if (applyDiscount) {
-//     const discountAmount = Math.ceil(
-//       (discountPercentage / 100) * totalItemsPrice
-//     );
-//     totalItemsPrice -= discountAmount;
-//   }
-//   console.log(totalItemsPrice);
-//   return totalItemsPrice;
-// };
 export const calculateTotalPrice = (
   cartItems,
   applyDiscount,
-  { shipping, taxes, discountPercentage },
-  index = 0
+  { shipping, taxes, discountPercentage }
 ) => {
-  if (index >= cartItems.length) {
-    return 0;
-  }
-  const currentItem = cartItems[index];
-  let total = 0;
+  /* calculate sub total=> all items according to 
+  its quantity and adding  discount percentage on each item*/
+  let subTotal = calculateSubtotal(cartItems);
 
-  // total price of all quantities with discount percentage on each item
-  total += +calculateItemPrice(currentItem);
+  // addi to sub total taxes and shipping
+  let priceWithTaxesAndShipping = +subTotal + +taxes + +shipping;
 
-  // add taxes and shipping to total
-  total = total + shipping + taxes;
+  // if there is dicount code apply it
+  let priceWithTaxesAndShippingAndDisountCode =
+    subTotal - (discountPercentage / 100) * subTotal;
 
-  //  if with code apply it
-  if (applyDiscount) {
-    return Math.ceil(total - (discountPercentage / 100) * total);
-  } else {
-    return total;
-  }
+  return applyDiscount
+    ? `${priceWithTaxesAndShippingAndDisountCode.toFixed(
+        2
+      )} $ congrats you had  ${discountPercentage} % off`
+    : `${priceWithTaxesAndShipping.toFixed(2)} $`;
 };
