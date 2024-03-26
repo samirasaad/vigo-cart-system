@@ -68,7 +68,7 @@ const SingleCartItem = ({
           <p className="bold-font text-white px-3">{product.Qty}</p>
           <button
             className=" bg-transparent text-white px-3 py-1"
-            onClick={() => handleAddToCart(product)}
+            onClick={() => handleAddToCart(product , 'increaseQty')}
           >
             +
           </button>

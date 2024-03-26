@@ -49,7 +49,7 @@ const SingleProduct = ({ product, handleAddToCart }) => {
             </p>
           </div>
           <button
-            onClick={() => handleAddToCart(product)}
+            onClick={() => handleAddToCart(product, 'add')}
             className="wrapper add_to_cart bg-transparent border-0"
           >
             <CartIcon className="bounce_button  add-to-cart-icon" />

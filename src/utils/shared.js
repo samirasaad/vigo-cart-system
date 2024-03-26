@@ -3,13 +3,17 @@ import { addToCart } from "../store/featuresSlices/cart";
 import { showToaster } from "../store/featuresSlices/toaster";
 
 /******************** handle add product to cart and increasing quantity ************************/
-export const handleAddToCart = (itemToBeAdded) => {
+export const handleAddToCart = (itemToBeAdded, actionName) => {
   store.dispatch(addToCart(itemToBeAdded));
   store.dispatch(
     showToaster({
       isToasterDisplayed: true,
       type: "success",
-      msg: "product added to cart successfully",
+      msg:
+        actionName === "add"
+          ? "product added to cart successfully"
+          : actionName === "increaseQty" &&
+            "product Qty increased in cart successfully",
     })
   );
 };

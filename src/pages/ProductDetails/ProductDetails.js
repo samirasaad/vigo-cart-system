@@ -60,7 +60,7 @@ const ProductDetails = () => {
           </p>
           <button
             className="primary-btn primar-gradient m-auto"
-            onClick={() => handleAddToCart(productDetails)}
+            onClick={() => handleAddToCart(productDetails, 'add')}
           >
             add to cart
           </button>
