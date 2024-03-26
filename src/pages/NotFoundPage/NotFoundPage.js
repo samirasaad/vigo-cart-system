@@ -4,14 +4,16 @@ import "./NotFoundPage.scss";
 
 const NotFoundPage = () => {
   return (
-    <div className="d-flex flex-column justify-content-center align-items-center">
-      <img src={NotFound} alt="empty-cart" className="empty-cart-icon" />
-      <p className="text-white">Page not found</p>
-      <Link to="/">
-        <button className="primary-btn primar-gradient m-auto">
-          Go to home
-        </button>
-      </Link>
+    <div className=" not-found-wrapper d-flex flex-column justify-content-center align-items-center">
+      <div>
+        <img src={NotFound} alt="not-found-icon" className="not-found-icon" />
+        <p className="text-white">Page not found</p>
+        <Link to="/">
+          <button className="primary-btn primar-gradient m-auto">
+            Go to home
+          </button>
+        </Link>
+      </div>
     </div>
   );
 };
