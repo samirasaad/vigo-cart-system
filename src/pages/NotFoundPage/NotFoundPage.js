@@ -7,7 +7,7 @@ const NotFoundPage = () => {
     <div className=" not-found-wrapper d-flex flex-column justify-content-center align-items-center">
       <div>
         <img src={NotFound} alt="not-found-icon" className="not-found-icon" />
-        <p className="text-white">Page not found</p>
+        <p className="text-white text-center">Page not found</p>
         <Link to="/">
           <button className="primary-btn primar-gradient m-auto">
             Go to home
