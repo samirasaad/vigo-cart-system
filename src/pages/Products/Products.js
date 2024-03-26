@@ -25,7 +25,11 @@ const Products = () => {
     <section className="container products-list pb-5 ">
       <div className="row pt-5 g-4">
         {productsList?.map((product) => (
-          <SingleProduct product={product} handleAddToCart={handleAddToCart} />
+          <SingleProduct
+            key={`product-${product.id}`}
+            product={product}
+            handleAddToCart={handleAddToCart}
+          />
         ))}
       </div>
     </section>

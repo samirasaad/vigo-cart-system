@@ -10,7 +10,6 @@ const SingleProduct = ({ product, handleAddToCart }) => {
     <div
       className="
     product-item product col-md-6 col-lg-4 col-xl-3 position-relative"
-      key={product.id}
     >
       {product.discountPercentage && (
         <DiscountBadge
@@ -18,7 +17,7 @@ const SingleProduct = ({ product, handleAddToCart }) => {
           className={"bold-font"}
         />
       )}
-      <div class="card border-5 h-100 rounded-4">
+      <div className="card border-5 h-100 rounded-4">
         <Link to={`/products/${product.id}`}>
           <div className="image">
             <img
@@ -27,8 +26,8 @@ const SingleProduct = ({ product, handleAddToCart }) => {
               alt={product.title}
             />
           </div>
-          <div class="card-body mb-5">
-            <h5 class="card-title semiBold-font title">{product.title}</h5>
+          <div className="card-body mb-5">
+            <h5 className="card-title semiBold-font title">{product.title}</h5>
           </div>
         </Link>
         <div className="card-footer d-flex justify-content-between align-items-stretch">
