@@ -21,7 +21,7 @@ const ProductDetails = () => {
 
   return (
     <section className="product-details-wrapper d-flex container justify-content-center align-items-center ">
-      <div className="bg-overlay row p-5">
+      <div className="bg-overlay row py-md-5">
         <div className="col-md-6 d-flex justify-content-center align-items-center py-3">
           <img
             className="product-cover"
@@ -29,7 +29,7 @@ const ProductDetails = () => {
             alt={productDetails.title}
           />
         </div>
-        <div className="col-md-6 d-flex justify-content-center flex-column">
+        <div className="col-md-6 d-flex justify-content-center flex-column py-md-4 py-0">
           <p className="text-white bold-font">
             <span className="secondary-text">Product name</span>
             {` : ${productDetails.title}`}

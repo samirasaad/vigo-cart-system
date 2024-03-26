@@ -129,10 +129,18 @@ a {
     color: white !important;
   }
 }
-.container {
-  padding-top: 5rem;
-}
+
 .bg-overlay {
   background-color: #04040452;
   border-radius: 16px;
+}
+
+.container {
+  padding-top: 5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding-top: 2rem;
+  }
 }
