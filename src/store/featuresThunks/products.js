@@ -6,7 +6,6 @@ export const getProductsThunk = createAsyncThunk(
   "products/getProducts",
   async () => {
     const res = await axiosInstance.get(
-      //   `/products?limit=30&skip=${page}&delay=1500`
       `/products?limit=100&delay=1000`
     );
     page = page + 30;

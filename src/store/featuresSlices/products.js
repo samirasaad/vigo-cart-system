@@ -1,15 +1,9 @@
 import { createSlice, current } from "@reduxjs/toolkit";
-import { persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage";
 import {
   getProductDetailsThunk,
   getProductsThunk,
 } from "../featuresThunks/products";
 
-const persistConfig = {
-  key: "products",
-  storage,
-};
 const initialState = { productsList: [], productDetails: {} };
 
 const productsSlice = createSlice({

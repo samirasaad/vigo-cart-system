@@ -6,6 +6,8 @@ export const axiosInstance = axios.create({
 });
 
 
+/********************** attach intereptors to axios instance ****************/
+// Handle request process
 axiosInstance.interceptors.request.use((request) => {
   return requestHandler(request);
 });

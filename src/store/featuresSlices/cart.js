@@ -1,8 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import persistReducer from "redux-persist/es/persistReducer";
 import storage from "redux-persist/lib/storage";
-import store from "..";
-import { showToaster } from "./toaster";
 
 const persistConfig = {
   key: "cart",

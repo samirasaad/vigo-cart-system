@@ -40,7 +40,6 @@ body {
   height: 6rem;
   background-color: #235f87;
 }
-
 //FONTS
 .bold-font {
   font-family: EDU-Bold;
@@ -51,15 +50,12 @@ body {
 .semiBold-font {
   font-family: EDU-semiBold;
 }
-
 .responsive-img {
   max-width: 100%;
 }
-
 .radius-ratio {
   border-radius: 2em;
 }
-
 a {
   text-decoration: none;
 }
@@ -91,20 +87,16 @@ a {
     cursor: pointer;
   }
 }
-
 .img-fluid {
   height: 25.5vh;
   object-fit: fill;
 }
-
 .badge-secondary {
   background-color: $secondaryColor !important;
 }
-
 .primar-gradient {
   background: linear-gradient(90deg, #0066cc 0%, #c500cc 100%);
 }
-
 //BUTTONS
 .primary-btn {
   font-size: 1.1rem;
@@ -129,7 +121,6 @@ a {
     border: solid 2px #0066cc;
   }
 }
-
 .secondary-btn {
   @extend .primary-btn;
   background: transparent;
@@ -138,11 +129,9 @@ a {
     color: white !important;
   }
 }
-
 .container {
   padding-top: 5rem;
 }
-
 .bg-overlay {
   background-color: #04040452;
   border-radius: 16px;

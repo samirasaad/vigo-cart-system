@@ -72,7 +72,7 @@ export const calculateSubtotal = (items) => {
  + taxes
    and after that appling discount code
 
-   ///// discount codes /////
+   ///// available discount codes /////
    abc => 15%
    abcd => 20%
    abcde => 30%

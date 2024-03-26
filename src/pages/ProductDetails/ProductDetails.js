@@ -6,7 +6,6 @@ import {
   calculatePriceAfterDicount,
   handleAddToCart,
 } from "../../utils/shared";
-import Example from "../../components/SlideShow/SlideShow";
 import "./ProductDetails.scss";
 
 const ProductDetails = () => {
