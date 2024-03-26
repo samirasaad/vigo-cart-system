@@ -13,11 +13,11 @@ const SingleCartItem = ({
 }) => {
   return (
     <div
-      key={`cart-item-${product.id}`}
-       className=" cart-item product p-4 mx-0 row my-3"
+      key={`cart-item-${product.id}-index`}
+      className=" cart-item product p-4 mx-0 row my-3"
     >
       <div className="col-md-4 mb-4">
-        <div class="card border-5  h-100 rounded-4">
+        <div className="card border-5  h-100 rounded-4">
           <div className="image">
             <img
               className="product-cover img-fluid rounded-4"
@@ -68,7 +68,7 @@ const SingleCartItem = ({
           <p className="bold-font text-white px-3">{product.Qty}</p>
           <button
             className=" bg-transparent text-white px-3 py-1"
-            onClick={() => handleAddToCart(product , 'increaseQty')}
+            onClick={() => handleAddToCart(product, "increaseQty")}
           >
             +
           </button>
@@ -84,7 +84,7 @@ const SingleCartItem = ({
               width="16"
               height="16"
               fill="currentColor"
-              class="bi bi-trash3-fill"
+              className="bi bi-trash3-fill"
               viewBox="0 0 16 16"
             >
               <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5" />

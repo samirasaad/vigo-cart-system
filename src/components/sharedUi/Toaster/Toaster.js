@@ -1,7 +1,7 @@
 import { Toast } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { showToaster } from "../../store/featuresSlices/toaster";
 import "./Toaster.scss";
+import { showToaster } from "../../../store/featuresSlices/toaster";
 
 const Toaster = ({ isToasterDisplayed, msg, type }) => {
   const dispatch = useDispatch();

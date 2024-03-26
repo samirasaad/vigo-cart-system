@@ -1,5 +1,5 @@
 import loadable from "@loadable/component";
-import Loader from "../components/Loader/Loader";
+import Loader from "../components/sharedUi/Loader/Loader";
 
 export const Home = loadable(() => import("./../pages/Home/Home"), {
   fallback: <Loader />,

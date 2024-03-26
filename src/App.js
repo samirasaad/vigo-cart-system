@@ -1,8 +1,8 @@
 import { RouterProvider } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { router } from "./routing/router";
-import Loader from "./components/Loader/Loader";
-import Toaster from "./components/Toaster/Toaster";
+import Loader from './components/sharedUi/Loader/Loader'
+import Toaster from './components/sharedUi/Toaster/Toaster'
 import "./App.scss";
 
 const App = () => {

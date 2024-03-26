@@ -50,6 +50,7 @@ const Cart = () => {
                 <div className="col-lg-8">
                   {cartItems.map((product, index) => (
                     <SingleCartItem
+                      key={`cart-item-${product.id}`}
                       product={product}
                       handleRemoveFromCart={handleRemoveFromCart}
                       index={index}
