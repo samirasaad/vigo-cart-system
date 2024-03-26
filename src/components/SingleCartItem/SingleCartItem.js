@@ -12,7 +12,10 @@ const SingleCartItem = ({
   index,
 }) => {
   return (
-    <div className=" cart-item product p-4 mx-0 row my-3" key={`cart-item-${product.id}`}>
+    <div
+      key={`cart-item-${product.id}`}
+       className=" cart-item product p-4 mx-0 row my-3"
+    >
       <div className="col-md-4 mb-4">
         <div class="card border-5  h-100 rounded-4">
           <div className="image">
