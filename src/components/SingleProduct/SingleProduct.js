@@ -17,7 +17,7 @@ const SingleProduct = ({ product, handleAddToCart }) => {
           className={"bold-font"}
         />
       )}
-      <div class="card border-5  h-100 rounded-4">
+      <div class="card border-5 h-100 rounded-4">
         <Link to={`/products/${product.id}`}>
           <div className="image">
             <img
